@@ -8,7 +8,7 @@ This test verifies:
 4. Stealth mode integration works (uses playwright-stealth internally)
 
 Issue: #1545 - Security vulnerability in cryptography package
-Fix: Updated pyOpenSSL from >=24.3.0 to >=25.3.0
+Fix: Updated pyOpenSSL from >=25.3.0 to >=26.0.0
 Expected: cryptography package should be >=45.0.7 (above vulnerable range)
 """
 
@@ -28,11 +28,11 @@ def check_versions():
         pyopenssl_version = OpenSSL.__version__
         print(f"✓ pyOpenSSL version: {pyopenssl_version}")
 
-        # Check pyOpenSSL >= 25.3.0
-        if version.parse(pyopenssl_version) >= version.parse("25.3.0"):
-            print(f"  ✓ Version check passed: {pyopenssl_version} >= 25.3.0")
+        # Check pyOpenSSL >= 26.0.0
+        if version.parse(pyopenssl_version) >= version.parse("26.0.0"):
+            print(f"  ✓ Version check passed: {pyopenssl_version} >= 26.0.0")
         else:
-            print(f"  ✗ Version check FAILED: {pyopenssl_version} < 25.3.0")
+            print(f"  ✗ Version check FAILED: {pyopenssl_version} < 26.0.0")
             return False
 
     except ImportError as e:
