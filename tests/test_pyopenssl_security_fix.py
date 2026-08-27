@@ -2,7 +2,7 @@
 Lightweight test to verify pyOpenSSL security fix (Issue #1545).
 
 This test verifies the security requirements are met:
-1. pyOpenSSL >= 25.3.0 is installed
+1. pyOpenSSL >= 26.0.0 is installed
 2. cryptography >= 45.0.7 is installed (above vulnerable range)
 3. SSL/TLS functionality works correctly
 
@@ -27,10 +27,10 @@ def test_package_versions():
         pyopenssl_version = OpenSSL.__version__
         print(f"\n✓ pyOpenSSL is installed: {pyopenssl_version}")
 
-        if version.parse(pyopenssl_version) >= version.parse("25.3.0"):
-            print(f"  ✓ PASS: pyOpenSSL {pyopenssl_version} >= 25.3.0 (required)")
+        if version.parse(pyopenssl_version) >= version.parse("26.0.0"):
+            print(f"  ✓ PASS: pyOpenSSL {pyopenssl_version} >= 26.0.0 (required)")
         else:
-            print(f"  ✗ FAIL: pyOpenSSL {pyopenssl_version} < 25.3.0 (required)")
+            print(f"  ✗ FAIL: pyOpenSSL {pyopenssl_version} < 26.0.0 (required)")
             all_passed = False
 
     except ImportError as e:
@@ -143,7 +143,7 @@ def main():
     if all_passed:
         print("\n✓✓✓ ALL TESTS PASSED ✓✓✓")
         print("✓ Security vulnerability is resolved")
-        print("✓ pyOpenSSL >= 25.3.0 is working correctly")
+        print("✓ pyOpenSSL >= 26.0.0 is working correctly")
         print("✓ cryptography >= 45.0.7 (not vulnerable)")
         print("\nThe dependency update is safe to merge.\n")
         return True
